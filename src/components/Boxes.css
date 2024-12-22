@@ -1,0 +1,70 @@
+.member-card {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    margin: 20px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .member-card:hover {
+    width: 200px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.274);
+  }
+  
+  .member-image-wrapper {
+    position: relative;
+    margin: 10px auto;
+    width: 150px;
+    height: 150px;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .member-card:hover .member-image-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .member-card:hover .member-image {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .member-designation {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .member-info {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .member-card:hover .member-info {
+    display: block;
+    opacity: 1;
+  }
+  

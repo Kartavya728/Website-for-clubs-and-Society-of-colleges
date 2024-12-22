@@ -1,0 +1,242 @@
+#Albums {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to bottom, white, #FBFBFD, #FBFBFD, #DA7B84,#5B3F84,#052149);
+    z-index: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+  *{
+      box-sizing: border-box;
+  }
+  
+  body{
+      margin: 0;
+  }
+  .header{
+      text-align: center;
+      padding: 32px;
+  }
+  .header h1{
+      font-family: 'Sacramento';
+      font-size: 50px;
+  }
+  
+  .row{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0px 100px 100px 100px;
+  }
+  .column{
+      flex: 25%;
+      max-width: 25%;
+      animation: scroll linear;
+animation-timeline: view();
+animation-range: entry 0 cover 20%;
+  }
+  .img-hover-zoom{
+      height: auto;
+      overflow: hidden;
+      border: 5px solid #ffffff00;
+  }
+  .img-hover-zoom {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  .img-hover-zoom img {
+    width: 100%;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: transform 0.5s ease;
+    border-radius: 15px;
+  }
+  
+  @keyframes scroll {
+    from{
+      opacity: 0;
+      scale: 0.5;
+    }
+    to{
+      opacity: 1;
+      scale: 1;
+    }
+    
+  }
+  .img-hover-zoom:hover img {
+    transform: scale(1.2); /* Scale effect */
+  }
+  
+  .img-hover-zoom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Smooth fade to black */
+    z-index: 1;
+    border-radius: 15px;
+  }
+  
+  .img-hover-zoom:hover::before {
+    opacity: 0.7; /* Dark overlay effect */
+  }
+  
+  .img-hover-zoom .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    z-index: 2; /* Make text appear above the overlay */
+    transition: opacity 0.5s ease;
+  }
+  
+  .img-hover-zoom:hover .hover-text {
+    opacity: 1; /* Show text on hover */
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+      .column{
+          flex: 50%;
+          max-width: 50%;
+      }
+  }
+  
+  @media screen and (max-width: 500px) {
+      .column{
+          flex: 100%;
+          max-width: 100%;
+      }
+  }
+  .cv {
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ff7d8a, #27a3eb);
+    box-shadow: 5px 10px 30px rgba(3, 8, 19, 0.137);
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cv:hover {
+    transform: scale(1.1);
+    box-shadow: 8px 15px 35px rgba(3, 8, 19, 0.2);
+  }
+  
+  .btn-arng {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5%;
+    position: relative; /* Required for positioning the dropdown */
+  }
+  
+  .dropdown {
+    flex-direction: column;
+    position: absolute;
+    top: 50px; /* Adjust based on your button height */
+    right: 0;
+    background: #ffffff00;
+    border-radius: 10px;
+
+    overflow: hidden;
+    z-index: 10;
+    animation: slideDown 0.3s ease-in-out;
+    display: none;
+  }
+  
+  .dropdown.show {
+    display: flex;
+    animation: slideDown 0.3s ease-in-out;
+  }
+  
+  .dropdown.hide {
+    animation: slideUp 0.3s ease-in-out;
+    display: flex;
+  }
+  
+  .dropdown button {
+    padding: 10px;
+    background: linear-gradient(to right, #27a3eb, #ff7d8a);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    transition: background 0.3s ease, margin 0.3s ease;
+    margin: 5px 0; /* Space between buttons */
+  }
+  
+  .dropdown button:hover {
+    background: linear-gradient(to right, #ff7d8a, #27a3eb);
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 768px) {
+    .cv {
+      width: 90px;
+      height: 35px;
+      font-size: 0.8em;
+    }
+  
+    .dropdown button {
+      padding: 8px;
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cv {
+      width: 80px;
+      height: 30px;
+      font-size: 0.7em;
+    }
+  
+    .dropdown button {
+      padding: 6px;
+      font-size: 0.8em;
+    }
+  }
